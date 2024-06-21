@@ -8,15 +8,19 @@ import today_Image from '../../assets/imgs/today.jpg'
 
 export default class Task_List extends Component {
     render(){
+        
         const today = moment().locale('pt-br').format('dddd, DD [de] MMMM')
         return(
+
             <View style={styles.container}>
+
                 <ImageBackground source={today_Image}>
-                    <View style={styles.titleBar}>
+                    <View style={styles.titleBar}>               
                         <Text style={styles.title}>Hoje</Text>
                         <Text style={styles.subTitle}>{today}</Text>
                     </View>
                 </ImageBackground>
+
                 <View style={styles.taskList}>
                     <Task 
                         description = "Estudo para prova do Hereman"
@@ -28,8 +32,6 @@ export default class Task_List extends Component {
                         estimate_at = {new Date()}
                         done_at = {null}                    
                     />
-                    <Task/>
-                    <Task/>
                 </View>
             </View>
         )
