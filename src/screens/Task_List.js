@@ -29,7 +29,7 @@ toggle_task = task_id => {
     const tasks = [...this.state.tasks]
     tasks.forEach(task => {
         if(task.id === task_id){
-            task.done_at = task.done_at ? null : newDate()
+            task.done_at = task.done_at ? null : new Date()
         }
     })
 }
