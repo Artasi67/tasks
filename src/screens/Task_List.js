@@ -7,6 +7,33 @@ import 'Task from "../components/Task"'
 import today_Image from '../../assets/imgs/today.jpg'
 
 export default class Task_List extends Component {
+
+    state = {
+        show_done_task: true,
+        visible_task: [],
+        tasks: [{
+            id: Math.random(),
+            description: "Estudar para prova de DDMI",
+            estimate_at: new Date(),
+            done_at: new Date()
+        },
+        {
+            id: Math.random(),
+            description: "Fazer a prova de DDMI",
+            estimate_at: moment(new Date()).add(5, "days"),
+            done_at: null
+        }]
+    }
+
+toggle_task = task_id => {
+    const tasks = [...this.state.tasks]
+    tasks.forEach(task => {
+        if(task.id === task_id){
+            task.done_at = task.done_at ? null : newDate()
+        }
+    })
+}
+
     render(){
         
         const today = moment().locale('pt-br').format('dddd, DD [de] MMMM')
