@@ -1,5 +1,5 @@
 import React, {Component} from "react"
-import { StyleSheet, View, Text, ImageBackground } from "react-native"
+import { StyleSheet, View, Text, ImageBackground, FlatList } from "react-native"
 import moment from "moment"
 import 'moment/locale/pt-br'
 import 'Task from "../components/Task"'
@@ -49,6 +49,10 @@ toggle_task = task_id => {
                 </ImageBackground>
 
                 <View style={styles.taskList}>
+                <FlatList
+                    data = {this.state.tasks}
+                    renderItem={({item}) => <Task{...item} toggle_task = {this.toggle_task}/>}
+                />
                     <Task 
                         description = "Estudo para prova do Hereman"
                         estimate_at = {new Date()}
