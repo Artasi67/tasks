@@ -32,6 +32,7 @@ toggle_task = task_id => {
             task.done_at = task.done_at ? null : new Date()
         }
     })
+   this.setState({tasks})
 }
 
     render(){
@@ -51,6 +52,7 @@ toggle_task = task_id => {
                 <View style={styles.taskList}>
                 <FlatList
                     data = {this.state.tasks}
+                    keyExtractor={item => `${item.id}`}
                     renderItem={({item}) => <Task{...item} toggle_task = {this.toggle_task}/>}
                 />
                     <Task 
